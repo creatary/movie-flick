@@ -27,7 +27,7 @@ get '/creatary/denied' do
 
 end
 
-get '/creatary/receive_sms' do
+post '/creatary/receive_sms' do
   from_user = params['from_user']
   from_user = params['to_app']
   from_user = params['body']
