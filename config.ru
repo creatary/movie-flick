@@ -1,5 +1,6 @@
 require './movie-flick'
-
+require 'logger'
+require 'creatary-sdk'
 
 map "/" do
   run MovieFlick
