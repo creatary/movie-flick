@@ -1,2 +1,10 @@
 require './movie-flick'
-run Sinatra::Application
+
+
+map "/" do
+  run MovieFlick
+end
+
+map "/creatary/(:string)" do
+  run Creatary::API
+end

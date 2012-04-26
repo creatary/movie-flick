@@ -1,39 +1,28 @@
-require 'sinatra'
+require 'sinatra/base'
 
-
-from_user = ""
-to_app = ""
-body = ""
-
-get '/hi' do
-  "Hello World" 
+class MovieFlick < Sinatra::Base
+  
+  get "/hi" do
+    "Hello World"
+  end
+  
 end
 
-get '/sms' do
-  "from user: #{from_user}, to app: #{to_app}, body: #{body}" 
-end
+class CreataryHandler
+  def authorized(user, session)
+    # should return the URL to which Creatary should redirect
+  end
 
-get '/creatary/authorized' do
-# should return the URL to which Creatary should redirect
-  if params['user'] == nil || params['session'] == nil
-    "Missing params"
-  else
-    user = params['user']
+  def denied(session)
+    # should return the URL to which Creatary should redirect
+  end
+
+  def receive_sms(from_user, to_app, body, transaction_id)
+    Creatary::API.send_sms(to_app, from_user, "hello world", transaction_id)
+  end
+
+  def lifecycle_notification(channel, invoker, reason, application_name, notification_type, access_tokens)
   end
 end
 
-get '/creatary/denied' do
-# should return the URL to which Creatary should redirect
-
-end
-
-post '/creatary/receive_sms' do
-  from_user = params['from_user']
-  from_user = params['to_app']
-  from_user = params['body']
-end
-
-get '/creatary/lifecycle_notification' do
-  # |channel, invoker, reason, application_name, notification_type, access_tokens|
-
-end
+#MovieFlick.run!

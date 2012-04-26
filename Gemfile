@@ -1,2 +1,3 @@
 source 'http://rubygems.org'
-gem 'sinatra'
+gem "sinatra", "~> 1.2.8"
+gem 'creatary-sdk'
