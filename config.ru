@@ -1,11 +1,4 @@
-require './movie-flick'
-require 'logger'
-require 'creatary-sdk'
+# This file is used by Rack-based servers to start the application.
 
-map "/" do
-  run MovieFlick
-end
-
-map "/creatary/(:string)" do
-  run Creatary::API
-end
+require ::File.expand_path('../config/environment',  __FILE__)
+run MovieFlick::Application
