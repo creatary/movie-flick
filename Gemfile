@@ -36,6 +36,6 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-gem 'creatary-sdk'
+gem 'creatary-sdk', :git => "git@github.com:creatary/creatary-ruby-sdk.git", :branch => "master"
 gem 'execjs'
 gem 'therubyracer'
