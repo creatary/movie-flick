@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 gem 'google-weather'
-gem 'creatary-sdk' #, :git => 'https://github.com/creatary/creatary-ruby-sdk'
+gem 'creatary-sdk' , :git => 'https://github.com/creatary/creatary-ruby-sdk', :branch => 'fix-gemspec-issue'
 gem 'nokogiri'
 
 # for Heroku deployment

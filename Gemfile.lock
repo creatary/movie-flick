@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/creatary/creatary-ruby-sdk
+  revision: b088cc002179557b1b069f13d1aac25f42b882c6
+  branch: fix-gemspec-issue
+  specs:
+    creatary-sdk (1.4.1)
+      json (~> 1.5)
+      oauth (~> 0.4.3)
+      sinatra (~> 1.2.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -46,10 +56,6 @@ GEM
       ffi (~> 1.0.6)
     columnize (0.3.6)
     crack (0.1.6)
-    creatary-sdk (1.4.1)
-      json (~> 1.5)
-      oauth (~> 0.4.3)
-      sinatra (~> 1.2.1)
     cucumber (1.1.9)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.2)
@@ -181,7 +187,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  creatary-sdk
+  creatary-sdk!
   cucumber-rails
   cucumber-rails-training-wheels
   database_cleaner
