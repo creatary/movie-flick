@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
-gem 'google-weather'
+gem 'google_movies'
 gem 'creatary-sdk' , :git => 'https://github.com/creatary/creatary-ruby-sdk', :branch => 'fix-gemspec-issue'
 gem 'nokogiri'
 
