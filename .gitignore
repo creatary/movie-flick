@@ -19,3 +19,9 @@ doc/
 
 # eclipse
 .project
+
+# idea
+.idea
+
+# log
+log

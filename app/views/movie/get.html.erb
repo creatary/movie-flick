@@ -1,0 +1,7 @@
+<h1>Movies for <%= params[:city] %> on <%=  Time.now %></h1>
+
+<ul>
+<% @movies.each do |m| %>
+<li><%= m.title %></li>
+<% end %>
+</ul>
