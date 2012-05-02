@@ -5,6 +5,7 @@ gem 'google_movies'
 gem 'creatary-sdk' , :git => 'https://github.com/creatary/creatary-ruby-sdk', :branch => 'fix-gemspec-issue'
 gem 'nokogiri'
 gem 'sqlite3'
+gem 'rottentomatoes'
 
 # for Heroku deployment
 group :development, :test do
