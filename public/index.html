@@ -1,241 +1,121 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ruby on Rails: Welcome aboard</title>
+    <title>MovieFlick</title>
     <style type="text/css" media="screen">
       body {
         margin: 0;
         margin-bottom: 25px;
         padding: 0;
-        background-color: #f0f0f0;
-        font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
-        font-size: 13px;
-        color: #333;
+        background-color: #2a2b2d;
+        font-family: "Gesta", "Arial";
+        font-size: 15px;
+        color: #8F8F90;
+        color: #fff;
+        background-image: url("assets/grey_wallpaper.jpg");
+        background-repeat: no-repeat;
+        background-position: top center;
       }
 
       h1 {
-        font-size: 28px;
-        color: #000;
+          font-size: 45px;
+          font-family:Georgia, Serif;
+          font-stretch: expanded;
+          color: #FBE10C;
+          text-align: center;
       }
 
-      a  {color: #03c}
+      h2 {
+          text-align: center;
+          font-size: 18px;
+          color: #fafafa;
+          font-weight: normal;
+          font-style:italic;
+      }
+
+      a  {
+          color: #fff;
+          text-decoration: none;
+      }
+
       a:hover {
-        background-color: #03c;
-        color: white;
+        color: #BFBF00;
         text-decoration: none;
+        border-bottom: dotted 1px #BFBF00;
       }
 
 
       #page {
-        background-color: #f0f0f0;
-        width: 750px;
-        margin: 0;
-        margin-left: auto;
-        margin-right: auto;
+        width: 950px;
+        margin: 0 auto;
       }
 
       #content {
-        float: left;
-        background-color: white;
-        border: 3px solid #aaa;
-        border-top: none;
-        padding: 25px;
-        width: 500px;
+          margin-top: 80px;
       }
 
-      #sidebar {
-        float: right;
-        width: 175px;
+      .content {
+        padding: 10px;
+      }
+
+      #coming-box {
+          border: 4px solid #EF800A;
+          background-color: #FD6000;
+          background-color: #EC8718;
+          border-radius: 10px;
+          -webkit-border-radius: 10px;
+          -webkit-border-bottom-right-radius: 10px;
+          -webkit-border-bottom-left-radius: 10px;
+          padding: 15px;
+          width: 300px;
+          margin: 180px auto 0px;
+          text-align: center;
+          color: #EEA13A;
+          box-shadow: 4px 4px 5px #EEA13A;
+          -moz-box-shadow: 4px 4px 5px #EEA13A;
+          -webkit-box-shadow: 4px 4px 5px #EEA13A;
+          display: none;
+      }
+
+      #coming-box h3 {
+          color: #EEA13A;
+          text-align: center;
+          margin-top: 0px;
+          margin-bottom: 20px;
       }
 
       #footer {
-        clear: both;
+          border-top: solid 1px #666666;
+          margin-top: 50px;
+          margin-bottom:20px;
+          clear: both;
+          font-size: 11px;
+          color: #cccccc;
+          display: none;
       }
 
-      #header, #about, #getting-started {
-        padding-left: 75px;
-        padding-right: 30px;
-      }
-
-
-      #header {
-        background-image: url("assets/rails.png");
-        background-repeat: no-repeat;
-        background-position: top left;
-        height: 64px;
-      }
-      #header h1, #header h2 {margin: 0}
-      #header h2 {
-        color: #888;
-        font-weight: normal;
-        font-size: 16px;
-      }
-
-
-      #about h3 {
-        margin: 0;
-        margin-bottom: 10px;
-        font-size: 14px;
-      }
-
-      #about-content {
-        background-color: #ffd;
-        border: 1px solid #fc0;
-        margin-left: -55px;
-        margin-right: -10px;
-      }
-      #about-content table {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-size: 11px;
-        border-collapse: collapse;
-      }
-      #about-content td {
-        padding: 10px;
-        padding-top: 3px;
-        padding-bottom: 3px;
-      }
-      #about-content td.name  {color: #555}
-      #about-content td.value {color: #000}
-
-      #about-content ul {
-        padding: 0;
-        list-style-type: none;
-      }
-
-      #about-content.failure {
-        background-color: #fcc;
-        border: 1px solid #f00;
-      }
-      #about-content.failure p {
-        margin: 0;
-        padding: 10px;
-      }
-
-
-      #getting-started {
-        border-top: 1px solid #ccc;
-        margin-top: 25px;
-        padding-top: 15px;
-      }
-      #getting-started h1 {
-        margin: 0;
-        font-size: 20px;
-      }
-      #getting-started h2 {
-        margin: 0;
-        font-size: 14px;
-        font-weight: normal;
-        color: #333;
-        margin-bottom: 25px;
-      }
-      #getting-started ol {
-        margin-left: 0;
-        padding-left: 0;
-      }
-      #getting-started li {
-        font-size: 18px;
-        color: #888;
-        margin-bottom: 25px;
-      }
-      #getting-started li h2 {
-        margin: 0;
-        font-weight: normal;
-        font-size: 18px;
-        color: #333;
-      }
-      #getting-started li p {
-        color: #555;
-        font-size: 13px;
-      }
-
-
-      #sidebar ul {
-        margin-left: 0;
-        padding-left: 0;
-      }
-      #sidebar ul h3 {
-        margin-top: 25px;
-        font-size: 16px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #ccc;
-      }
-      #sidebar li {
-        list-style-type: none;
-      }
-      #sidebar ul.links li {
-        margin-bottom: 5px;
-      }
-
-      .filename {
-        font-style: italic;
-      }
     </style>
-    <script type="text/javascript">
-      function about() {
-        info = document.getElementById('about-content');
-        if (window.XMLHttpRequest)
-          { xhr = new XMLHttpRequest(); }
-        else
-          { xhr = new ActiveXObject("Microsoft.XMLHTTP"); }
-        xhr.open("GET","rails/info/properties",false);
-        xhr.send("");
-        info.innerHTML = xhr.responseText;
-        info.style.display = 'block'
-      }
-    </script>
+    <script type="text/javascript"></script>
+
   </head>
   <body>
     <div id="page">
-      <div id="sidebar">
-        <ul id="sidebar-items">
-          <li>
-            <h3>Browse the documentation</h3>
-            <ul class="links">
-              <li><a href="http://guides.rubyonrails.org/">Rails Guides</a></li>
-              <li><a href="http://api.rubyonrails.org/">Rails API</a></li>
-              <li><a href="http://www.ruby-doc.org/core/">Ruby core</a></li>
-              <li><a href="http://www.ruby-doc.org/stdlib/">Ruby standard library</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-
-      <div id="content">
-        <div id="header">
-          <h1>Welcome aboard</h1>
-          <h2>You&rsquo;re riding Ruby on Rails!</h2>
+        <div id="content">
+            <div class="content">
+                <h1>MovieFlick</h1>
+                <h2>to know where and what is worth to be seen</h2>
+            </div>
+            
+            <div id="coming-box">
+                <h3>coming soon</h3>
+                movieFlick is in currently in private beta
+            </div>
         </div>
-
-        <div id="about">
-          <h3><a href="rails/info/properties" onclick="about(); return false">About your application&rsquo;s environment</a></h3>
-          <div id="about-content" style="display: none"></div>
+        <div id="footer">
+            <div class="content">
+            © 2011
+            </div>
         </div>
-
-        <div id="getting-started">
-          <h1>Getting started</h1>
-          <h2>Here&rsquo;s how to get rolling:</h2>
-
-          <ol>
-            <li>
-              <h2>Use <code>rails generate</code> to create your models and controllers</h2>
-              <p>To see all available options, run it without parameters.</p>
-            </li>
-
-            <li>
-              <h2>Set up a default route and remove <span class="filename">public/index.html</span></h2>
-              <p>Routes are set up in <span class="filename">config/routes.rb</span>.</p>
-            </li>
-
-            <li>
-              <h2>Create your database</h2>
-              <p>Run <code>rake db:create</code> to create your database. If you're not using SQLite (the default), edit <span class="filename">config/database.yml</span> with your username and password.</p>
-            </li>
-          </ol>
-        </div>
-      </div>
-
-      <div id="footer">&nbsp;</div>
     </div>
   </body>
 </html>
