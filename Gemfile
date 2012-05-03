@@ -4,11 +4,11 @@ gem 'rails', '3.2.0'
 gem 'google_movies'
 gem 'creatary-sdk' , :git => 'https://github.com/creatary/creatary-ruby-sdk', :branch => 'fix-gemspec-issue'
 gem 'nokogiri'
-gem 'sqlite3'
 gem 'rottentomatoes'
 
 # for Heroku deployment
 group :development, :test do
+  gem 'sqlite3'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'cucumber-rails' ,require: false
   gem 'cucumber-rails-training-wheels'  # some pre-fabbed step definitions                                                                                                                                                                                                     
