@@ -1,21 +1,79 @@
 class MovieRequest
 
-  def initialize(body, from_user)
+  def process_request(body, from_user)
+    request_processors = [MoviesForLocationRequest.new, MoviesForCityRequest.new, CinemasForMoviesRequest.new, MoviesInfoRequest.new]
 
     arguments = body.split(" ")
     arguments.shift
 
-    if arguments.empty?
-      coordinates = SubscriberLocation.new.get_location from_user
-      @location = coordinates.join(" ")
-    else
-      @location = arguments.join(" ")
-    end
+    request_processors.each do |request_processor|
 
+       if request_processor.maches_request? arguments
+         return request_processor.process(arguments, from_user)
+       end
+
+    end
   end
 
-  def location
-    @location
+end
+
+class MoviesForLocationRequest
+
+  def maches_request?(arguments)
+    arguments.empty?
+  end
+
+  def process(arguments, from_user)
+    coordinates = SubscriberLocation.new.get_location from_user
+    location = coordinates.join(" ")
+
+    MovieFinder::MovieFinder.new.find(location)
+  end
+
+end
+
+class MoviesForCityRequest
+
+  def maches_request?(arguments)
+    !arguments.empty? && !(arguments[0].start_with? "cinema:") && !(arguments[0].start_with? "movie:")
+  end
+
+  def process (arguments, from_user)
+    city = arguments.join(" ")
+    MovieFinder::MovieFinder.new.find(city)
+  end
+
+end
+
+
+class CinemasForMoviesRequest
+
+  def maches_request?(arguments)
+    !arguments.empty? && (arguments[0].start_with? "cinema:")
+  end
+
+  def process(arguments, from_user)
+    arguments.shift
+    movie = arguments.join(" ")
+    coordinates = SubscriberLocation.new.get_location from_user
+    location = coordinates.join(" ")
+
+    MovieFinder::MovieFinder.new.fetch_cinemas(location,movie)
+  end
+
+end
+
+class MoviesInfoRequest
+
+  def maches_request?(arguments)
+    !arguments.empty? && (arguments[0].start_with? "movie:")
+  end
+
+  def process(arguments, from_user)
+    arguments.shift
+    movie = arguments.join(" ")
+
+    MovieFinder::MovieFinder.new.fetch_movie_details(movie)
   end
 
 end
