@@ -1,7 +1,13 @@
-<h1>Movies for <%= params[:city] %> on <%=  Time.now %></h1>
+<h3><%= params[:city] %> on <%= Time.now.strftime("%d-%m-%Y") %></h3>
 
-<ul>
-<% @movies.each do |m| %>
-<li><%= m.title %> cs: <%= m.ratings.critics_score %>, as: <%= m.ratings.acudience_score %></li>
-<% end %>
+<ul class="movies-rating">
+    <% @movies.each do |m| %>
+        <li>
+            <span class="movie-title"><%= m.title %></span> <br />
+            <p class="rating">
+                <span class="rating-legend">critics score:</span> <span class="crating"><%= m.ratings.critics_score %></span> <br />
+                <span class="rating-legend">audience score:</span> <span class="arating"><%= m.ratings.audience_score %></span>
+            </p>
+        </li>
+    <% end %>
 </ul>
