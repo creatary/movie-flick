@@ -2,6 +2,6 @@
 
 <ul>
 <% @movies.each do |m| %>
-<li><%= m.name %></li>
+<li><%= m.title %> cs: <%= m.ratings.critics_score %>, as: <%= m.ratings.acudience_score %></li>
 <% end %>
 </ul>

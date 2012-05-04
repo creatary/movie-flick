@@ -2,15 +2,15 @@ module MovieFinder
 
   class Movie
 
-    attr_reader :title, :rank
+    attr_reader :title, :rating
 
-    def initialize(title, rank)
+    def initialize(title, rating)
       @title = title
-      @rank = rank
+      @rating = rating
     end
 
     def to_s
-      @title
+      "#{@title}:: #{@rating}"
     end
 
   end
