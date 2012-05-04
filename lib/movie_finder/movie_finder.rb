@@ -2,7 +2,7 @@ module MovieFinder
 
   class MovieFinder
 
-    def find(city)
+    def find_by_location(city)
       googleMovies = GoogleMovies::Client.new(city)
       movies = Array.new
       if googleMovies.movies_theaters.size > 0
@@ -25,8 +25,12 @@ module MovieFinder
         end
       end
 
-      movies.sort! { |a, b| b.ratings.critics_score <=> a.ratings.critics_score }
-      parse_response movies
+      movies.sort! {|a,b| b.ratings.critics_score <=> a.ratings.critics_score}
+      movies
+    end
+
+    def find_by_city_for_sms(city)
+      parse_response(find_by_location(city))
     end
 
     #TODO handle exceptions
@@ -39,7 +43,7 @@ module MovieFinder
     def parse_response(movies)
       response = ""
       movies.each do |movie|
-        movie_info = "#{movie.title}: AS: #{movie.ratings.critics_score}, CS: #{movie.ratings.audience_score} "
+        movie_info = "#{movie.title} [AS: #{movie.ratings.critics_score}, CS: #{movie.ratings.audience_score}] "
         if response.length + movie_info.length <160
           response.concat(movie_info)
         end

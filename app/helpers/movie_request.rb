@@ -27,7 +27,7 @@ class MoviesForLocationRequest
     coordinates = SubscriberLocation.new.get_location from_user
     location = coordinates.join(" ")
 
-    MovieFinder::MovieFinder.new.find(location)
+    MovieFinder::MovieFinder.new.find_by_location(location)
   end
 
 end
@@ -40,7 +40,7 @@ class MoviesForCityRequest
 
   def process (arguments, from_user)
     city = arguments.join(" ")
-    MovieFinder::MovieFinder.new.find(city)
+    MovieFinder::MovieFinder.new.find_by_location(city)
   end
 
 end
