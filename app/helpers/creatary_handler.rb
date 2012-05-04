@@ -10,7 +10,6 @@ class CreataryHandler
 
   def receive_sms(from_user, to_app, body, transaction_id)
 
-
     response = MovieRequest.new.process_request body, from_user
 
     log_request(body, from_user, response)

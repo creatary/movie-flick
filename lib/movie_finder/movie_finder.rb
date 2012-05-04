@@ -2,8 +2,8 @@ module MovieFinder
 
   class MovieFinder
 
-    def find_by_location(city)
-      googleMovies = GoogleMovies::Client.new(city)
+    def find_by_location(location)
+      googleMovies = GoogleMovies::Client.new(location)
       movies = Array.new
       if googleMovies.movies_theaters.size > 0
         googleMovies.movies_theaters.each do |theater|
@@ -47,6 +47,7 @@ module MovieFinder
       end
       response
     end
+
 
     def fetch_movies(city)
       parse_response(find_by_location(city))
