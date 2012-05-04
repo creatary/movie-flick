@@ -9,10 +9,12 @@ class CreataryHandler
   end
 
   def receive_sms(from_user, to_app, body, transaction_id)
-    #TODO add films processing
-    response = 'film info'
-    Creatary::API.send_sms(to_app, from_user, response, transaction_id)
+
+    movie_request = MovieRequest.new body, from_user
+    response = MovieFinder::MovieFinder.new.find(movie_request.location)
+
     log_request(body, from_user, response)
+    Creatary::API.send_sms(to_app, from_user, response, transaction_id)
   end
 
   def log_request(body, from_user, response)
