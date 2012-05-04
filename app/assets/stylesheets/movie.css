@@ -2,3 +2,25 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+ul.movies-rating {
+    margin: 0px;
+    padding: 0px;
+}
+
+ul.movies-rating li {
+    margin: 0px;
+    padding: 0px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.movie-title {
+    font-weight: bold;
+}
+
+p.rating {
+    padding-left: 15px;
+    margin: 0px;
+}
+

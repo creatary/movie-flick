@@ -73,29 +73,48 @@ a:hover {
 }
 
 #coming-box {
-    border: 4px solid #EF800A;
-    background-color: #FD6000;
-    background-color: #EC8718;
+    border: 3px solid #b2b2b2;
+    background-color: #FBE10C;
+    background-color: #F9F382;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -webkit-border-bottom-right-radius: 10px;
     -webkit-border-bottom-left-radius: 10px;
-    padding: 15px;
+    padding: 16px;
     width: 300px;
-    margin: 180px auto 0px;
+    margin: 100px auto 0px;
     text-align: center;
-    color: #EEA13A;
-    box-shadow: 4px 4px 5px #EEA13A;
-    -moz-box-shadow: 4px 4px 5px #EEA13A;
-    -webkit-box-shadow: 4px 4px 5px #EEA13A;
+    color: #999;
+    color: #4C4849;
+    box-shadow: 4px 4px 5px #ccc;
+    -moz-box-shadow: 4px 4px 5px #ccc;
+    -webkit-box-shadow: 4px 4px 5px #ccc;
     display: none;
 }
 
 #coming-box h3 {
-    color: #EEA13A;
+    color: #999;
     text-align: center;
+    font-weight: normal;
     margin-top: 0px;
     margin-bottom: 20px;
+}
+
+#coming-box input.text {
+    border: none;
+    color: #333;
+    height: 32px;
+    width: 170px;
+}
+
+#coming-box input.btn {
+    width: 32px;
+    height: 32px;
+    background-image: url("go-rtl.png");
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    border: none;
+    background-color: #fff;
 }
 
 #footer {
@@ -106,25 +125,4 @@ a:hover {
     font-size: 11px;
     color: #cccccc;
     display: none;
-}
-
-.movie-title {
-    font-weight: bold;
-}
-
-p.rating {
-    padding-left: 15px;
-    margin: 0px;
-}
-
-ul.movies-rating {
-    margin: 0px;
-    padding: 0px;
-}
-
-ul.movies-rating li {
-    margin: 0px;
-    padding: 0px;
-    margin-top: 5px;
-    margin-bottom: 10px;
 }
