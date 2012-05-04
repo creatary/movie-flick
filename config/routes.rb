@@ -1,6 +1,8 @@
 MovieFlick::Application.routes.draw do
 
-  match 'movie/:city' => 'movie#get'
+  match "movie/:city" => "movie#find_by_location"
+
+  #match 'movie/:city' => 'movie#find_by_location'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

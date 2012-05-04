@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "city/get.html.erb" do
+describe "city/find_by_location.html.erb" do
   pending "add some examples to (or delete) #{__FILE__}"
 end

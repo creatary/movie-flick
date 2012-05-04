@@ -2,7 +2,7 @@ module MovieFinder
 
   class MovieFinder
 
-    def find(city)
+    def find_by_city(city)
       googleMovies = GoogleMovies::Client.new(city)
       movies = Array.new
       if googleMovies.movies_theaters.size > 0
@@ -26,9 +26,12 @@ module MovieFinder
       end
 
       movies.sort! {|a,b| b.ratings.critics_score <=> a.ratings.critics_score}
-      parse_response movies
+      movies
     end
 
+    def find_by_city_for_sms(city)
+      parse_response(find_by_city(city))
+    end
 
     def get_movie_details(movie_title)
       RottenTomatoes::Rotten.api_key = "wvw7psh9gt5kn4vf8h9f2bum"
@@ -39,7 +42,7 @@ module MovieFinder
     def parse_response(movies)
       response = ""
       movies.each do |movie|
-        movie_info = "#{movie.title}: AS: #{movie.ratings.critics_score}, CS: #{movie.ratings.audience_score} "
+        movie_info = "#{movie.title} [AS: #{movie.ratings.critics_score}, CS: #{movie.ratings.audience_score}] "
         if response.length + movie_info.length <160
           response.concat(movie_info)
         end
