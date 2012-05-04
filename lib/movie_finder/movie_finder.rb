@@ -29,9 +29,6 @@ module MovieFinder
       movies
     end
 
-    def find_by_city_for_sms(city)
-      parse_response(find_by_location(city))
-    end
 
     #TODO handle exceptions
     def get_movie_details(movie_title)
@@ -49,6 +46,10 @@ module MovieFinder
         end
       end
       response
+    end
+
+    def fetch_movies(city)
+      parse_response(find_by_location(city))
     end
 
     def fetch_cinemas(location, movie)

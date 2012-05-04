@@ -27,7 +27,7 @@ class MoviesForLocationRequest
     coordinates = Creatary::API.getcoord(from_user)["body"]
     location = coordinates.join(" ")
 
-    MovieFinder::MovieFinder.new.find_by_location(location)
+    MovieFinder::MovieFinder.new.fetch_movies(location)
   end
 
 end
@@ -40,7 +40,7 @@ class MoviesForCityRequest
 
   def process (arguments, from_user)
     city = arguments.join(" ")
-    MovieFinder::MovieFinder.new.find_by_location(city)
+    MovieFinder::MovieFinder.new.fetch_movies(city)
   end
 
 end
