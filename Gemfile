@@ -21,7 +21,8 @@ group :development, :test do
   gem 'simplecov' ,require: false                                                                                                                                                                                                                                              
 end                                                                                                                                                                                                                                                                            
 group :production do                                                                                                                                                                                                                                                           
-  gem 'pg'                                                                                                                                                                                                                                                                     
+  gem 'pg'
+  gem 'uglifier'
 end                                                                                                                                                                                                                                                                            
                                                                                                                                                                                                                                                                                
 # Gems used only for assets and not required                                                                                                                                                                                                                                   
