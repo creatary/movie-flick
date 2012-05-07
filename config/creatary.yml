@@ -1,6 +1,6 @@
 development: &defaults
-    consumer_key:     lh797ufpqw7f8rwa
-    consumer_secret:  rvc202my52r55h1g
+    consumer_key:     6ytrp9q4uh91xj3m
+    consumer_secret:  52tnr5p4vpanxnny
     consumer_handler: CreataryHandler
 test:
     <<: *defaults
