@@ -1,3 +1,6 @@
+require 'rottentomatoes'
+include RottenTomatoes
+
 module MovieFinder
 
   class MovieFinder
