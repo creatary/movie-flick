@@ -20,4 +20,8 @@ class MovieController < ApplicationController
     end
   end
 
+  def index
+
+  end
+
 end
