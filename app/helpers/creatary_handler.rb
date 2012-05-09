@@ -13,6 +13,7 @@ class CreataryHandler
     response = MovieRequest.new.process_request body, from_user
 
     log_request(body, from_user, response)
+    transaction_id = ""
     Creatary::API.send_sms(to_app, from_user, response, transaction_id)
   end
 
