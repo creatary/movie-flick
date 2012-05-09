@@ -7,7 +7,7 @@ module FormatHelper
         response.concat(movie_info)
       end
     end
-    response
+    (response.empty?) ? "No movies found" :response
   end
 
   def cinemas_to_string(cinemas)
@@ -18,6 +18,6 @@ module FormatHelper
         response.concat(cinema_info)
       end
     end
-    response
+    (response.empty?) ? "No cinemas found" :response
   end
 end
