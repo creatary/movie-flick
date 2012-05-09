@@ -1,12 +1,12 @@
-namespace :test do
+#namespace :test do
 
-  require 'spec_helper'
-  include MovieFinder
+  #require 'spec_helper'
+  #include MovieFinder
 
-  describe MovieFinder do
+  #describe MovieFinder do
 
-    describe "#find_by_location" do
-      if "returns movies list for given location "
+    #describe "#find_by_location" do
+    #  if "returns movies list for given location "
         #FakeWeb.register_uri(:get, "http://www.google.com/movies?near=warsaw&hl=en&date=0&time=0&view=list",
         #                     :body => fixture_file("fixtures/warsaw.xml"))
 
@@ -26,11 +26,11 @@ namespace :test do
 
         #then
 
-      end
-    end
+      #end
+    #end
 
-  end
+  #end
 
 
 
-end
+#end
