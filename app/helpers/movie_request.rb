@@ -79,7 +79,7 @@ class MoviesInfoRequest
   end
 
   def display_movie_info(movie)
-    return "Movie was not found" if movie.empty?
+    return "Movie was not found" if movie.nil?
     "#{movie.title}(#{movie.year}) #{movie.critics_consensus}, CS:#{movie.critics_score}, AS: #{movie.audience_score} "
   end
 
