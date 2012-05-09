@@ -12,6 +12,8 @@ module MovieFinder
 
     def fetch_movie_details(movie_title)
       RottenTomatoes::Rotten.api_key = "wvw7psh9gt5kn4vf8h9f2bum"
+      Rails.logger.info "Fetching details for #{ movie_title}"
+
       movie = RottenTomatoes::RottenMovie.find(:title => movie_title, :limit => 1, :expand_results => false)
       return nil if movie.empty?
       Movie.new(movie.title, movie.ratings.critics_score, movie.ratings.audience_score,
