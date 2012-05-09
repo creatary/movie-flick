@@ -33,7 +33,7 @@ module MovieFinder
 
     def get_movies_details(movies_titles)
       Rails.logger.info "Get movies details for #{ movies_titles.length } movies:"
-      movies_titles.map { |movie_title| fetch_movie_details movie_title }.compact
+      movies_titles.map { |movie_title| fetch_movie_details(movie_title) }.compact
     end
 
     def extract_movies_titles(google_movies)
