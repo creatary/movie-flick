@@ -13,7 +13,7 @@ module FormatHelper
   def cinemas_to_string(cinemas)
     response = ""
     cinemas.each do |cinema|
-      cinema_info = "#{cinema.name} #{cinema.addres}"
+      cinema_info = "#{cinema.name} #{cinema.address}"
       if response.length + cinema_info.length <160
         response.concat(cinema_info)
       end
