@@ -18,8 +18,7 @@ module MovieFinder
     end
 
     def display_movie_scores
-      "#{movie.title} [AS: #{movie.critics_score}"+
-          (!movie.audience_score.nil? ? ", CS: #{movie.audience_score}] " : "] ")
+      "#{@title} [AS: #{@critics_score}"+(!@audience_score? ", CS: #{ @audience_score}] " : "] ")
     end
 
   end
