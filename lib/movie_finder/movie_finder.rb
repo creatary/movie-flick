@@ -5,17 +5,25 @@ module MovieFinder
 
   class MovieFinder
 
+    attr_writer :google_movies_client_factory, :rotten_tomatoes_factory
+
+    def initialize
+      @google_movies_client_factory = GoogleMoviesClientFactory.new
+      @rotten_tomatoes_factory = RottenTomatoesFactory.new
+    end
+
     def find_by_location(location)
-      googleMovies = GoogleMovies::Client.new(location)
+      googleMovies = @google_movies_client_factory.create_client(location)
       sort_movies_by_rating(get_movies_details(extract_movies_titles(googleMovies)))
     end
 
     def fetch_movie_details(movie_title)
       return nil if movie_title.empty?
-      RottenTomatoes::Rotten.api_key = "wvw7psh9gt5kn4vf8h9f2bum"
+      #RottenTomatoes::Rotten.api_key = "wvw7psh9gt5kn4vf8h9f2bum"
       Rails.logger.info "Fetching details for #{ movie_title}"
       begin
-        movie = RottenTomatoes::RottenMovie.find(:title => movie_title, :limit => 1, :expand_results => false)
+        #movie = RottenTomatoes::RottenMovie.find(:title => movie_title, :limit => 1, :expand_results => false)
+        movie = @rotten_tomatoes_factory.find(movie_title)
       rescue Exception
         movie = nil
       end
@@ -30,7 +38,7 @@ module MovieFinder
     end
 
     def fetch_cinemas(location, movie)
-      google_movies = GoogleMovies::Client.new(location)
+      google_movies = @google_movies_client_factory.create_client(location)
       google_movies.movies_theaters.delete_if { |t| !t.movies.map{ |m| m.name }.include?(movie) }
     end
 
