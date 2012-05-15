@@ -19,10 +19,8 @@ module MovieFinder
 
     def fetch_movie_details(movie_title)
       return nil if movie_title.empty?
-      #RottenTomatoes::Rotten.api_key = "wvw7psh9gt5kn4vf8h9f2bum"
       Rails.logger.info "Fetching details for #{ movie_title}"
       begin
-        #movie = RottenTomatoes::RottenMovie.find(:title => movie_title, :limit => 1, :expand_results => false)
         movie = @rotten_tomatoes_factory.find(movie_title)
       rescue Exception
         movie = nil
